@@ -93,10 +93,10 @@ jobs:
       curl -X PATCH \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Bearer $(getToken.accessToken)' \
-        -d '{
-            "status": "SUCCESS",
-            "message": {"run_status":"Completed resource creation at $(completedAt)", "url":"$(terraform_output)" }
-          }' \
+        -d "{
+            \"status\": \"SUCCESS\",
+            \"message\": {\"run_status\":\"Completed resource creation at ${completedAt}\", \"url\":\"${terraform_output}\" }
+          }" \
         "https://api.getport.io/v1/actions/runs/$(PORT_RUN_ID)"
     displayName: 'Update Run Status'
     workingDirectory: 'terraform'
